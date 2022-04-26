@@ -1,0 +1,16 @@
+local Player = game:GetService("Players").LocalPlayer
+game:GetService("RunService").Stepped:connect(function()
+    for i,v in pairs (game:GetService("Players"):GetChildren()) do
+        if v.TeamColor ~= Player.TeamColor and v.Name ~= Player.Name then
+            v.Character.HumanoidRootPart.Size = Vector3.new(5,8,5)
+            v.Character.HumanoidRootPart.Material = "Neon"
+            v.Character.HumanoidRootPart.BrickColor = BrickColor.new("Really red")
+            v.Character.HumanoidRootPart.Transparency = 0.5
+        elseif v.TeamColor ~= Player.TeamColor and v.Name == "Pet_AtorAltAccount" then
+            v.Character.HumanoidRootPart.Size = Vector3.new(3,5,3)
+            v.Character.HumanoidRootPart.Material = "Neon"
+            v.Character.HumanoidRootPart.BrickColor = BrickColor.new("New Yeller")
+            v.Character.HumanoidRootPart.Transparency = 0.5
+        end
+    end
+end)
